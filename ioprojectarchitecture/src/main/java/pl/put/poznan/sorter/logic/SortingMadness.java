@@ -11,7 +11,7 @@ public class SortingMadness {
         this.sorts = sorts;
     }
 
-    public String transform(String text){
+    public String sort(String text){
         // of course, normally it would do something based on the transforms
         return text.toUpperCase();
     }

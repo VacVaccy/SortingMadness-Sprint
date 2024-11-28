@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-@SpringBootApplication(scanBasePackages = {"pl.put.poznan.transformer.rest"})
+@SpringBootApplication(scanBasePackages = {"pl.put.poznan.sorter.rest"})
 public class SortingMadnessApplication {
 
     public static void main(String[] args) {

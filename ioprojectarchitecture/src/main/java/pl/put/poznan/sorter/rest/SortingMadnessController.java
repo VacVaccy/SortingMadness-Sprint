@@ -24,7 +24,7 @@ public class SortingMadnessController {
 
         // perform the transformation, you should run your logic here, below is just a silly example
         SortingMadness sorter = new SortingMadness(sorts);
-        return sorter.transform(text);
+        return sorter.sort(text);
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
@@ -37,7 +37,7 @@ public class SortingMadnessController {
 
         // perform the transformation, you should run your logic here, below is just a silly example
         SortingMadness sorter = new SortingMadness(sorts);
-        return sorter.transform(text);
+        return sorter.sort(text);
     }
 
 
