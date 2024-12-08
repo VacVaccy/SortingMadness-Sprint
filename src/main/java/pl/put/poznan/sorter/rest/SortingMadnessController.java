@@ -5,8 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import pl.put.poznan.sorter.logic.SortingMadness;
+import pl.put.poznan.sorter.logic.SortingResponse;
 
 import java.util.Arrays;
+import java.util.List;
 
 @RestController
 @RequestMapping("/sort")
@@ -15,7 +17,7 @@ public class SortingMadnessController {
     private static final Logger logger = LoggerFactory.getLogger(SortingMadnessController.class);
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public int[] get(
+    public List<SortingResponse> get(
             @RequestParam("data") int[] data,
             @RequestParam(value = "sorts", defaultValue = "1") String[] sorts) {
 
@@ -25,11 +27,16 @@ public class SortingMadnessController {
 
         // Sort the data
         SortingMadness sorter = new SortingMadness(sorts);
-        return sorter.sort(data);
+        //!
+        List<SortingResponse> responses = sorter.sort(data);
+        responses.forEach(response -> logger.debug(response.toString()));
+        return responses;
+        //!
+        // return sorter.sort(data);
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public int[] post(
+    public List<SortingResponse> post(
             @RequestBody SortingRequest request) {
 
         logger.debug("Data to sort: {}", Arrays.toString(request.getData()));
@@ -37,6 +44,11 @@ public class SortingMadnessController {
 
         // Sort the data
         SortingMadness sorter = new SortingMadness(request.getSorts());
-        return sorter.sort(request.getData());
+        //!
+        List<SortingResponse> responses = sorter.sort(request.getData());
+        responses.forEach(response -> logger.debug(response.toString()));
+        return responses;
+        //!
+        // return sorter.sort(request.getData());
     }
 }
