@@ -1,5 +1,6 @@
 package pl.put.poznan.sorter.logic;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class SortingAlgorithm {
@@ -34,6 +35,28 @@ public class SortingAlgorithm {
         }
         return arr;
     }
+
+    public static String[] selectionSort(String[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            int min_id = i;
+
+            for (int j = i + 1; j < n; j++) {
+                // Porównanie słów alfabetycznie
+                if (arr[j].compareTo(arr[min_id]) < 0) {
+                    min_id = j;
+                }
+            }
+            // Zamiana miejscami słów
+            String temp = arr[i];
+            arr[i] = arr[min_id];
+            arr[min_id] = temp;
+        }
+        System.out.println(Arrays.toString(arr));
+
+        return arr;
+    }
+
 
     public static int[] insertionSort(int[] arr) {
         int n = arr.length;

@@ -13,7 +13,7 @@ public class SortingMadness {
         this.sorts = sorts;
     }
 
-    public List<SortingResponse> sort(int[] data) {
+    public List<SortingResponse> sortInts(int[] data) {
         List<SortingResponse> responses = new ArrayList<>();
 
         for (String sortn : sorts) {
@@ -52,4 +52,24 @@ public class SortingMadness {
     }
 
 
+    public List<SortingResponse> sortStrings(String[] data) {
+
+        List<SortingResponse> responses = new ArrayList<>();
+
+        for (String sortn : sorts) {
+            long sortingTime = System.nanoTime();
+            switch (sortn) {
+
+                case "2":
+                    data = SortingAlgorithm.selectionSort(data);
+                    sortingTime = System.nanoTime() - sortingTime;
+                    responses.add(new SortingResponse("Selection sort", data, sortingTime));
+                    break;
+
+                default:
+                    throw new IllegalArgumentException("Unknown sorting algorithm: " + sortn);
+            }
+        }
+        return responses;
+    }
 }
