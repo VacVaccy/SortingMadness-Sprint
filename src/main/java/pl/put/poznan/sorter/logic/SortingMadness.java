@@ -50,6 +50,12 @@ public class SortingMadness {
                     sortingTime = System.nanoTime() - sortingTime;
                     responses.add(new SortingResponse("Heap sort", data, sortingTime));
                     break;
+                case "6":
+                    ShellSort shellSorter = new ShellSort();
+                    data = shellSorter.sort(data.clone());
+                    sortingTime = System.nanoTime() - sortingTime;
+                    responses.add(new SortingResponse("Shell sort", data, sortingTime));
+                    break;
                 default :
                     throw new IllegalArgumentException("Unknown sorting algorithm: " + sortn);
             }
@@ -98,6 +104,12 @@ public class SortingMadness {
                     data = heapSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
                     responses.add(new SortingResponse("Heap sort", data, sortingTime));
+                    break;
+                case "6":
+                    ShellSort shellSorter = new ShellSort();
+                    data = shellSorter.sort(data.clone());
+                    sortingTime = System.nanoTime() - sortingTime;
+                    responses.add(new SortingResponse("Shell sort", data, sortingTime));
                     break;
                 default :
                     throw new IllegalArgumentException("Unknown sorting algorithm: " + sortn);

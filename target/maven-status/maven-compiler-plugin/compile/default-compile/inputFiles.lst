@@ -1,11 +1,12 @@
-Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\logic\InsertionSort.java
 Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\rest\SortingMadnessController.java
+Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\logic\ShellSort.java
 Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\logic\Sorter.java
-Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\app\SortingMadnessApplication.java
 Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\logic\DataCheckService.java
 Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\logic\SortingMadness.java
 Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\logic\SelectionSort.java
 Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\logic\HeapSort.java
+Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\logic\InsertionSort.java
+Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\app\SortingMadnessApplication.java
 Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\rest\SortingRequest.java
 Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\logic\QuickSort.java
 Z:\Dev-learning\Studia\IO-java\SortingMadness-Sprint\src\main\java\pl\put\poznan\sorter\logic\BubbleSort.java
