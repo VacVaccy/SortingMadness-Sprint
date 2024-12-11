@@ -18,25 +18,25 @@ import java.util.Objects;
 @RestController
 @AllArgsConstructor
 @Data
-@RequestMapping("/sort")
+@RequestMapping("/app/sortingmadness")
 public class SortingMadnessController {
 
     private final DataCheckService dataCheckService;
     private static final Logger logger = LoggerFactory.getLogger(SortingMadnessController.class);
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(path="/sort", method = RequestMethod.GET, produces = "application/json")
     public List<SortingResponse> get(
             @RequestParam("data") Object[] data,
-            @RequestParam(value = "sorts", defaultValue = "1") String[] sorts) throws IllegalAccessException {
+            @RequestParam(value = "algorithms", defaultValue = "1") String[] algorithms) throws IllegalAccessException {
 
         // Log parameters
         logger.debug("Data to sort: {}", Arrays.toString(data));
-        logger.debug("Sorting algorithms: {}", Arrays.toString(sorts));
+        logger.debug("Sorting algorithms: {}", Arrays.toString(algorithms));
 
         // Sort the data
-        SortingMadness sorter = new SortingMadness(sorts);
+        SortingMadness sorter = new SortingMadness(algorithms);
         //!
-        if (dataCheckService.isNumericArray(data)){
+        if (dataCheckService.isNumericArray(data)) {
             int[] parsedData = Arrays.stream(data)
                     .mapToInt(o -> Integer.parseInt((String) o))  // Convert string to int
                     .toArray();

@@ -10,7 +10,7 @@ public class DataCheckService {
 
     public boolean isNumericArray(Object[] data) {
         for (Object obj : data) {
-            if (!(obj instanceof String) || !((String) obj).matches("\\d+")) {
+            if (!(obj instanceof String) || !((String) obj).matches("-?\\d+")) {
                 return false; // Nie jest liczbą
             }
         }

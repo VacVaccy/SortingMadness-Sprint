@@ -28,21 +28,27 @@ public class SortingMadness {
                     break;
                 case "2":
                     SelectionSort selectionSorter = new SelectionSort();
-                    data = selectionSorter.sort(data);
+                    data = selectionSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
                     responses.add(new SortingResponse("Selection sort", data, sortingTime));
                     break;
                 case "3":
                     InsertionSort insertionSorter = new InsertionSort();
-                    data = insertionSorter.sort(data);
+                    data = insertionSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
                     responses.add(new SortingResponse("Insertion sort", data, sortingTime));
                     break;
                 case "4":
                     QuickSort quickSorter = new QuickSort();
-                    data = quickSorter.sort(data);
+                    data = quickSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
                     responses.add(new SortingResponse("Quick sort", data, sortingTime));
+                    break;
+                case "5":
+                    HeapSort heapSorter = new HeapSort();
+                    data = heapSorter.sort(data.clone());
+                    sortingTime = System.nanoTime() - sortingTime;
+                    responses.add(new SortingResponse("Heap sort", data, sortingTime));
                     break;
                 default :
                     throw new IllegalArgumentException("Unknown sorting algorithm: " + sortn);
@@ -71,21 +77,27 @@ public class SortingMadness {
                     break;
                 case "2":
                     SelectionSort selectionSorter = new SelectionSort();
-                    data = selectionSorter.sort(data);
+                    data = selectionSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
                     responses.add(new SortingResponse("Selection sort", data, sortingTime));
                     break;
                 case "3":
                     InsertionSort insertionSorter = new InsertionSort();
-                    data = insertionSorter.sort(data);
+                    data = insertionSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
                     responses.add(new SortingResponse("Insertion sort", data, sortingTime));
                     break;
                 case "4":
                     QuickSort quickSorter = new QuickSort();
-                    data = quickSorter.sort(data);
+                    data = quickSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
                     responses.add(new SortingResponse("Quick sort", data, sortingTime));
+                    break;
+                case "5":
+                    HeapSort heapSorter = new HeapSort();
+                    data = heapSorter.sort(data.clone());
+                    sortingTime = System.nanoTime() - sortingTime;
+                    responses.add(new SortingResponse("Heap sort", data, sortingTime));
                     break;
                 default :
                     throw new IllegalArgumentException("Unknown sorting algorithm: " + sortn);
