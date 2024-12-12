@@ -26,7 +26,7 @@ public class SortingMadnessController {
 
     @RequestMapping(path="/sort", method = RequestMethod.GET, produces = "application/json")
     public List<SortingResponse> get(
-            @RequestParam("data") Object[] data,
+            @RequestParam("data") String[] data,
             @RequestParam(value = "algorithms", defaultValue = "1") String[] algorithms) throws IllegalAccessException {
 
         // Log parameters

@@ -1,16 +1,16 @@
 package pl.put.poznan.sorter.logic;
 
 /**
- * Klasa implementująca algorytm sortowania bąbelkowego.
+ * Class implementing the Bubble Sort algorithm.
  * <p>
- * Algorytm sortowania bąbelkowego polega na wielokrotnym przechodzeniu przez tablicę,
- * porównywaniu sąsiednich elementów i zamianie ich miejscami, jeśli są w złej kolejności.
- * Zamiiana elementów odbywa się "bąbelkowo", tzn. największy element przechodzi na koniec tablicy
- * po każdym pełnym przebiegu.
+ * The Bubble Sort algorithm works by repeatedly traversing the array,
+ * comparing adjacent elements and swapping them if they are in the wrong order.
+ * The elements are swapped "bubbly," meaning the largest element moves to the end of the array
+ * after each full pass through the array.
  * </p>
  * <p>
- * Czasowa złożoność algorytmu: O(n^2) w najgorszym przypadku, O(n) w najlepszym przypadku,
- * gdy tablica jest już posortowana.
+ * Time complexity of the algorithm: O(n^2) in the worst case, O(n) in the best case,
+ * when the array is already sorted.
  * </p>
  * 
  * @see Sorter
@@ -19,14 +19,14 @@ package pl.put.poznan.sorter.logic;
 public class BubbleSort implements Sorter {
 
     /**
-     * Sortuje tablicę liczb całkowitych przy użyciu algorytmu sortowania bąbelkowego.
+     * Sorts an array of integers using the Bubble Sort algorithm.
      * <p>
-     * Działa na zasadzie porównywania sąsiednich elementów i ich zamiany, jeśli są w złej kolejności.
-     * Powtarza tę operację do momentu, gdy tablica będzie posortowana.
+     * The algorithm works by comparing adjacent elements and swapping them if they are in the wrong order.
+     * It repeats this process until the array is sorted.
      * </p>
      * 
-     * @param arr Tablica liczb całkowitych do posortowania.
-     * @return Posortowana tablica liczb całkowitych.
+     * @param arr The array of integers to be sorted.
+     * @return The sorted array of integers.
      */
     @Override
     public int[] sort(int[] arr) {
@@ -44,14 +44,14 @@ public class BubbleSort implements Sorter {
     }
 
     /**
-     * Sortuje tablicę łańcuchów znaków przy użyciu algorytmu sortowania bąbelkowego.
+     * Sorts an array of strings using the Bubble Sort algorithm.
      * <p>
-     * Działa na zasadzie porównywania sąsiednich elementów i ich zamiany, jeśli są w złej kolejności.
-     * Powtarza tę operację do momentu, gdy tablica będzie posortowana.
+     * The algorithm works by comparing adjacent elements and swapping them if they are in the wrong order.
+     * It repeats this process until the array is sorted.
      * </p>
      * 
-     * @param arr Tablica łańcuchów znaków (String) do posortowania.
-     * @return Posortowana tablica łańcuchów znaków (String).
+     * @param arr The array of strings (String) to be sorted.
+     * @return The sorted array of strings (String).
      */
     @Override
     public String[] sort(String[] arr) {
@@ -68,6 +68,15 @@ public class BubbleSort implements Sorter {
         return arr;
     }
 
+    /**
+     * Returns the name of the sorting algorithm.
+     * <p>
+     * This method returns the name of the sorting algorithm, in this case, "Bubble sort", which is implemented
+     * in this class.
+     * </p>
+     * 
+     * @return The name of the sorting algorithm.
+     */
     @Override
     public String getName() {
         return "Bubble sort";
