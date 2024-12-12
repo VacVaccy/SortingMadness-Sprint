@@ -40,4 +40,9 @@ public class ShellSort implements Sorter {
 
         return arr;
     }
+
+    @Override
+    public String getName() {
+        return "Shell sort";
+    }
 }

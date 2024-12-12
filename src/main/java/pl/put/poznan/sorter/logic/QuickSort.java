@@ -93,4 +93,9 @@ public class QuickSort implements Sorter {
 
         return j;
     }
+
+    @Override
+    public String getName() {
+        return "Quick sort";
+    }
 }

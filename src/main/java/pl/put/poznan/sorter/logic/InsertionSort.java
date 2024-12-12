@@ -32,4 +32,9 @@ public class InsertionSort implements Sorter{
         }
         return arr;
     }
+
+    @Override
+    public String getName() {
+        return "Insertion sort";
+    }
 }

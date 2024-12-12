@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 @Data
 public class DataCheckService {
 
-
     public boolean isNumericArray(Object[] data) {
         for (Object obj : data) {
             if (!(obj instanceof String) || !((String) obj).matches("-?\\d+")) {

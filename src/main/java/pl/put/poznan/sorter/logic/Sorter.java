@@ -4,4 +4,6 @@ public interface Sorter {
     int[] sort(int[] arr);
 
     String[] sort(String[] arr);
+
+    String getName();
 }

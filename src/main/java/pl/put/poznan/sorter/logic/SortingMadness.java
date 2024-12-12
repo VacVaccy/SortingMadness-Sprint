@@ -8,53 +8,53 @@ import java.util.List;
 public class SortingMadness {
 
     private final String[] sorts;
-    
+
     public SortingMadness(String[] sorts){
         this.sorts = sorts;
     }
 
     public List<SortingResponse> sortInts(int[] data) {
         List<SortingResponse> responses = new ArrayList<>();
+        int[] sortedData;
 
         for (String sortn : sorts) {
             long sortingTime = System.nanoTime();
             switch (sortn) {
-                
                 case "1":
                     BubbleSort bubbleSorter = new BubbleSort();
-                    data = bubbleSorter.sort(data.clone());
+                    sortedData = bubbleSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Bubble sort", data, sortingTime));
+                    responses.add(new SortingResponse(bubbleSorter.getName(), sortedData, data, sortingTime));
                     break;
                 case "2":
                     SelectionSort selectionSorter = new SelectionSort();
-                    data = selectionSorter.sort(data.clone());
+                    sortedData = selectionSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Selection sort", data, sortingTime));
+                    responses.add(new SortingResponse(selectionSorter.getName(), sortedData, data, sortingTime));
                     break;
                 case "3":
                     InsertionSort insertionSorter = new InsertionSort();
-                    data = insertionSorter.sort(data.clone());
+                    sortedData = insertionSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Insertion sort", data, sortingTime));
+                    responses.add(new SortingResponse(insertionSorter.getName(), sortedData, data, sortingTime));
                     break;
                 case "4":
                     QuickSort quickSorter = new QuickSort();
-                    data = quickSorter.sort(data.clone());
+                    sortedData = quickSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Quick sort", data, sortingTime));
+                    responses.add(new SortingResponse(quickSorter.getName(), sortedData, data, sortingTime));
                     break;
                 case "5":
                     HeapSort heapSorter = new HeapSort();
-                    data = heapSorter.sort(data.clone());
+                    sortedData = heapSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Heap sort", data, sortingTime));
+                    responses.add(new SortingResponse(heapSorter.getName(), sortedData, data, sortingTime));
                     break;
                 case "6":
                     ShellSort shellSorter = new ShellSort();
-                    data = shellSorter.sort(data.clone());
+                    sortedData = shellSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Shell sort", data, sortingTime));
+                    responses.add(new SortingResponse(shellSorter.getName(), sortedData, data, sortingTime));
                     break;
                 default :
                     throw new IllegalArgumentException("Unknown sorting algorithm: " + sortn);
@@ -70,6 +70,7 @@ public class SortingMadness {
 
     public List<SortingResponse> sortStrings(String[] data) {
         List<SortingResponse> responses = new ArrayList<>();
+        String[] sortedData;
 
         for (String sortn : sorts) {
             long sortingTime = System.nanoTime();
@@ -77,39 +78,39 @@ public class SortingMadness {
                 
                 case "1":
                     BubbleSort bubbleSorter = new BubbleSort();
-                    data = bubbleSorter.sort(data.clone());
+                    sortedData = bubbleSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Bubble sort", data, sortingTime));
+                    responses.add(new SortingResponse(bubbleSorter.getName(), sortedData, data, sortingTime));
                     break;
                 case "2":
                     SelectionSort selectionSorter = new SelectionSort();
-                    data = selectionSorter.sort(data.clone());
+                    sortedData = selectionSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Selection sort", data, sortingTime));
+                    responses.add(new SortingResponse(selectionSorter.getName(), sortedData, data, sortingTime));
                     break;
                 case "3":
                     InsertionSort insertionSorter = new InsertionSort();
-                    data = insertionSorter.sort(data.clone());
+                    sortedData = insertionSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Insertion sort", data, sortingTime));
+                    responses.add(new SortingResponse(insertionSorter.getName(), sortedData, data, sortingTime));
                     break;
                 case "4":
                     QuickSort quickSorter = new QuickSort();
-                    data = quickSorter.sort(data.clone());
+                    sortedData = quickSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Quick sort", data, sortingTime));
+                    responses.add(new SortingResponse(quickSorter.getName(), sortedData, data, sortingTime));
                     break;
                 case "5":
                     HeapSort heapSorter = new HeapSort();
-                    data = heapSorter.sort(data.clone());
+                    sortedData = heapSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Heap sort", data, sortingTime));
+                    responses.add(new SortingResponse(heapSorter.getName(), sortedData, data, sortingTime));
                     break;
                 case "6":
                     ShellSort shellSorter = new ShellSort();
-                    data = shellSorter.sort(data.clone());
+                    sortedData = shellSorter.sort(data.clone());
                     sortingTime = System.nanoTime() - sortingTime;
-                    responses.add(new SortingResponse("Shell sort", data, sortingTime));
+                    responses.add(new SortingResponse(shellSorter.getName(), sortedData, data, sortingTime));
                     break;
                 default :
                     throw new IllegalArgumentException("Unknown sorting algorithm: " + sortn);

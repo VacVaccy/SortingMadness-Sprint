@@ -82,4 +82,9 @@ public class HeapSort implements Sorter {
             heapify(arr, n, largest);
         }
     }
+
+    @Override
+    public String getName() {
+        return "Heap sort";
+    }
 }
