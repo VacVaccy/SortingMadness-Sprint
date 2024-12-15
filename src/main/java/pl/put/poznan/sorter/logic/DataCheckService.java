@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Data
 public class DataCheckService {
+    private Object[] data;
 
     public boolean isNumericArray(Object[] data) {
         for (Object obj : data) {
@@ -30,6 +31,10 @@ public class DataCheckService {
             }
         }
         return true;
+    }
+
+    public Object[] getDataAsObjects() {
+        return data;
     }
 
 }
