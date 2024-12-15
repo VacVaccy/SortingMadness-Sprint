@@ -35,4 +35,9 @@ public class SelectionSort implements Sorter {
         }
         return arr;
     }
+
+    @Override
+    public String getName() {
+        return "Selection sort";
+    }
 }

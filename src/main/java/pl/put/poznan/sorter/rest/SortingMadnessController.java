@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
+// import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import pl.put.poznan.sorter.logic.DataCheckService;
@@ -13,7 +13,7 @@ import pl.put.poznan.sorter.logic.SortingResponse;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+// import java.util.Objects;
 
 @RestController
 @AllArgsConstructor
@@ -26,7 +26,7 @@ public class SortingMadnessController {
 
     @RequestMapping(path="/sort", method = RequestMethod.GET, produces = "application/json")
     public List<SortingResponse> get(
-            @RequestParam("data") Object[] data,
+            @RequestParam("data") String[] data,
             @RequestParam(value = "algorithms", defaultValue = "1") String[] algorithms) throws IllegalAccessException {
 
         // Log parameters
@@ -59,20 +59,33 @@ public class SortingMadnessController {
         // return sorter.sort(data);
     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public List<SortingResponse> post(
-            @RequestBody SortingRequest request) {
+    @PostMapping(path = "/sort", consumes = "application/json", produces = "application/json")
+    public List<SortingResponse> post(@RequestBody SortingPostRequest request) throws IllegalAccessException {
 
+        // Log the input data
         logger.debug("Data to sort: {}", Arrays.toString(request.getData()));
-        logger.debug("Sorting algorithms: {}", Arrays.toString(request.getSorts()));
 
+        String[] data = request.getDataAsStrings();
         // Sort the data
         SortingMadness sorter = new SortingMadness(request.getSorts());
-        //!
-        List<SortingResponse> responses = sorter.sortInts(request.getData());
-        responses.forEach(response -> logger.debug(response.toString()));
-        return responses;
-        //!
-        // return sorter.sort(request.getData());
+        if (dataCheckService.isNumericArray(data)) {
+            // If data is numeric, sort integers
+            int[] parsedData = Arrays.stream(data)
+                    .mapToInt(obj -> Integer.parseInt((String) obj))
+                    .toArray();
+            List<SortingResponse> responses = sorter.sortInts(parsedData);
+            responses.forEach(response -> logger.debug(response.toString()));
+            return responses;
+        } else if (dataCheckService.isStringArray(data)) {
+            // If data is strings, sort alphabetically
+            String[] parsedData = Arrays.stream(data)
+                    .map(Object::toString)
+                    .toArray(String[]::new);
+            List<SortingResponse> responses = sorter.sortStrings(parsedData);
+            responses.forEach(response -> logger.debug(response.toString()));
+            return responses;
+        } else {
+            throw new IllegalAccessException("Invalid data format");
+        }
     }
 }
