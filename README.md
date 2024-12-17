@@ -65,8 +65,8 @@ http://localhost:8080/app/sortingmadness/sort?data=1a,2,6,3,-12&algorithms=4,1,2
 ```
 
 ### Autorzy
-Jakub Urbaniak
-Wojciech Wróbel
+- Jakub Urbaniak
+- Wojciech Wróbel
 
 ### Przydatne linki:
 
