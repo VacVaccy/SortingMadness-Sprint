@@ -77,8 +77,8 @@ public class QuickSort implements Sorter {
         int j = right;
 
         while (i <= j) {
-            while (i <= j && arr[i].compareTo(pivot) <= 0) i++;
-            while (i <= j && arr[j].compareTo(pivot) > 0) j--;
+            while (i <= j && arr[i].compareToIgnoreCase(pivot) <= 0) i++;
+            while (i <= j && arr[j].compareToIgnoreCase(pivot) > 0) j--;
 
             if (i < j) {
                 String temp = arr[i];

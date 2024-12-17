@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-// import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 import pl.put.poznan.sorter.logic.DataCheckService;
@@ -13,7 +13,6 @@ import pl.put.poznan.sorter.logic.SortingResponse;
 
 import java.util.Arrays;
 import java.util.List;
-// import java.util.Objects;
 
 @RestController
 @AllArgsConstructor
@@ -35,7 +34,7 @@ public class SortingMadnessController {
 
         // Sort the data
         SortingMadness sorter = new SortingMadness(algorithms);
-        //!
+
         if (dataCheckService.isNumericArray(data)) {
             int[] parsedData = Arrays.stream(data)
                     .mapToInt(o -> Integer.parseInt((String) o))  // Convert string to int
@@ -43,7 +42,7 @@ public class SortingMadnessController {
             List<SortingResponse> responses = sorter.sortInts(parsedData);
             responses.forEach(response -> logger.debug(response.toString()));
             return responses;
-        } else if (dataCheckService.isStringArray(data)) {
+        } else {
             String[] parsedData = Arrays.stream(data)
                     .map(Object::toString)
                     .toArray(String[]::new);
@@ -51,12 +50,7 @@ public class SortingMadnessController {
             responses.forEach(response -> logger.debug(response.toString()));
             return responses;
 
-        }else{
-            throw new IllegalAccessException();
         }
-
-        //!
-        // return sorter.sort(data);
     }
 
     @PostMapping(path = "/sort", consumes = "application/json", produces = "application/json")
@@ -76,7 +70,7 @@ public class SortingMadnessController {
             List<SortingResponse> responses = sorter.sortInts(parsedData);
             responses.forEach(response -> logger.debug(response.toString()));
             return responses;
-        } else if (dataCheckService.isStringArray(data)) {
+        } else {
             // If data is strings, sort alphabetically
             String[] parsedData = Arrays.stream(data)
                     .map(Object::toString)
@@ -84,8 +78,6 @@ public class SortingMadnessController {
             List<SortingResponse> responses = sorter.sortStrings(parsedData);
             responses.forEach(response -> logger.debug(response.toString()));
             return responses;
-        } else {
-            throw new IllegalAccessException("Invalid data format");
-        }
+        } 
     }
 }

@@ -2,9 +2,8 @@ package pl.put.poznan.sorter.logic;
 
 import java.util.ArrayList;
 import java.util.List;
-/**
- * This is just an example to show that the logic should be outside the REST service.
- */
+
+
 public class SortingMadness {
 
     private final String[] sorts;

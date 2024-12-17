@@ -17,22 +17,6 @@ public class DataCheckService {
         return true;
     }
 
-    public boolean isStringArray(Object[] data) {
-        for (Object obj : data) {
-            // Sprawdzenie, czy element jest ciągiem znaków
-            if (!(obj instanceof String)) {
-                return false;
-            }
-
-            // Sprawdzenie, czy ciąg nie zawiera cyfr
-            String str = (String) obj;
-            if (str.matches(".*\\d.*")) {  // Jeśli ciąg zawiera cyfrę
-                return false;
-            }
-        }
-        return true;
-    }
-
     public Object[] getDataAsObjects() {
         return data;
     }

@@ -25,7 +25,7 @@ public class SelectionSort implements Sorter {
         for (int i = 0; i < n - 1; i++) {
             int min_id = i;
             for (int j = i + 1; j < n; j++) {
-                if (arr[j].compareTo(arr[min_id]) < 0) {
+                if (arr[j].compareToIgnoreCase(arr[min_id]) < 0) {
                     min_id = j;
                 }
             }
