@@ -26,7 +26,7 @@ replay_pid*
 # Maven build target directory (ignoring the whole target folder)
 /target
 /target/*
-.idea
-/.idea/
-/.idea/
-.vscode
+/.idea
+/.idea/*
+/.vscode
+/.vscode/*
