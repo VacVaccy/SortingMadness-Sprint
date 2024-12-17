@@ -24,7 +24,7 @@ public class InsertionSort implements Sorter{
         for (int i = 1; i < n; i++) {
             String key = arr[i];
             int j = i - 1;
-            while (j >= 0 && key.compareTo(arr[j]) < 0) {
+            while (j >= 0 && key.compareToIgnoreCase(arr[j]) < 0) {
                 arr[j + 1] = arr[j];
                 j--;
             }
