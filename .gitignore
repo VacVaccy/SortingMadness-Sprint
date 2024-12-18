@@ -10,8 +10,7 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files # # !!!Added * at the end of *.jar!!!
-*.jar*  
+# Package Files
 *.war
 *.nar
 *.ear
@@ -24,8 +23,6 @@ hs_err_pid*
 replay_pid*
 
 # Maven build target directory (ignoring the whole target folder)
-/target
-/target/*
 /.idea
 /.idea/*
 /.vscode

@@ -1,0 +1,14 @@
+pl\put\poznan\sorter\logic\Sorter.class
+pl\put\poznan\sorter\rest\SortingMadnessController.class
+pl\put\poznan\sorter\logic\ShellSort.class
+pl\put\poznan\sorter\logic\SortingResponse.class
+pl\put\poznan\sorter\logic\BubbleSort.class
+pl\put\poznan\sorter\logic\QuickSort.class
+pl\put\poznan\sorter\app\SortingMadnessApplication.class
+pl\put\poznan\sorter\logic\SelectionSort.class
+pl\put\poznan\sorter\logic\SortingMadness.class
+pl\put\poznan\sorter\logic\InsertionSort.class
+pl\put\poznan\sorter\rest\SortingPostRequest.class
+pl\put\poznan\sorter\logic\HeapSort.class
+pl\put\poznan\sorter\rest\SortingRequest.class
+pl\put\poznan\sorter\logic\DataCheckService.class
