@@ -30,7 +30,7 @@ public class ShellSort implements Sorter {
                 String temp = arr[i];
                 int j = i;
                 
-                while (j >= gap && arr[j - gap].compareTo(temp) > 0) {
+                while (j >= gap && arr[j - gap].compareToIgnoreCase(temp) > 0) {
                     arr[j] = arr[j - gap];
                     j -= gap;
                 }

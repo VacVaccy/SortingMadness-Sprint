@@ -11,5 +11,7 @@ public class SortingMadnessApplication {
     public static void main(String[] args) {
         SpringApplication.run(SortingMadnessApplication.class, args);
         log.warn("App started (SL4FJ)");
+        log.debug("App started (SL4FJ)");
+        log.info("App started (SL4FJ)");
     }
 }

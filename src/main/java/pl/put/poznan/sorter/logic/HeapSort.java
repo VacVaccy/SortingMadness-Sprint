@@ -123,11 +123,11 @@ public class HeapSort implements Sorter {
         int left = 2 * i + 1;
         int right = 2 * i + 2;
 
-        if (left < n && arr[left].compareTo(arr[largest]) > 0) {
+        if (left < n && arr[left].compareToIgnoreCase(arr[largest]) > 0) {
             largest = left;
         }
 
-        if (right < n && arr[right].compareTo(arr[largest]) > 0) {
+        if (right < n && arr[right].compareToIgnoreCase(arr[largest]) > 0) {
             largest = right;
         }
 
