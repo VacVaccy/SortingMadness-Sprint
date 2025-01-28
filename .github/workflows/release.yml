@@ -3,7 +3,7 @@ name: Create Release
 on:
   release:
     types:
-      - created 
+      - created  
 
 permissions:
   contents: write
@@ -28,14 +28,24 @@ jobs:
       - name: List files in target
         run: ls -l target 
 
+      - name: Check if release with tag exists
+        id: check_tag
+        run: |
+          if git tag -l "${{ github.event.release.tag_name }}" > /dev/null; then
+            echo "Tag already exists!"
+          else
+            echo "Tag does not exist!"
+            exit 1  # Exit if tag does not exist
+          fi
+
       - name: Create or Update Release
+        if: steps.check_tag.outputs.exists == 'true'
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ github.event.release.tag_name }} 
-          name: Release ${{ github.event.release.tag_name }}
+          name: Release ${{ github.event.release.tag_name }} 
           body: |
             This release contains the compiled JAR file for version ${{ github.event.release.tag_name }}.
-          files: target/*.jar  
+          artifacts: target/*.jar  
           token: ${{ secrets.GITHUB_TOKEN }}
-          makeLatest: true  
-          updateOnlyUnreleased: true 
+          makeLatest: true 
