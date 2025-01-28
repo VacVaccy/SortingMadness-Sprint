@@ -1,7 +1,9 @@
 name: Create Release
 
 on:
-  workflow_dispatch:
+  release:
+    types:
+      - created 
 
 permissions:
   contents: write
@@ -24,15 +26,15 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: List files in target
-        run: ls -l target  
+        run: ls -l target 
 
       - name: Create or Update Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ github.event.inputs.tag_name }} 
-          name: Release ${{ github.event.inputs.tag_name }}
+          tag: ${{ github.event.release.tag_name }} 
+          name: Release ${{ github.event.release.tag_name }}
           body: |
-            This release contains the compiled JAR file for version ${{ github.event.inputs.tag_name }}.
-          artifacts: target/*.jar 
+            This release contains the compiled JAR file for version ${{ github.event.release.tag_name }}.
+          files: target/*.jar  
           token: ${{ secrets.GITHUB_TOKEN }}
-          updateAction: update
+          makeLatest: true  
