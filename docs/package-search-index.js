@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"pl.put.poznan.sorter.app"},{"l":"pl.put.poznan.sorter.logic"},{"l":"pl.put.poznan.sorter.rest"}];updateSearchResults();
