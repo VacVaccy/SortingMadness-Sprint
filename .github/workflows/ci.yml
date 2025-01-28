@@ -39,12 +39,24 @@ jobs:
         run: ls -l target
 
       - name: Create or Update Release
+        if: steps.check_release.outputs.result == 'false'
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           body: |
             This release contains the compiled JAR file for version ${{ github.ref_name }}.
+          artifacts: target/*.jar
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update Existing Release
+        if: steps.check_release.outputs.result == 'true' 
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          body: |
+            This release has been updated with the latest JAR file for version ${{ github.ref_name }}.
           artifacts: target/*.jar
           token: ${{ secrets.GITHUB_TOKEN }}
           updateAction: update
