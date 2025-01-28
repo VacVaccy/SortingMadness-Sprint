@@ -38,3 +38,4 @@ jobs:
           files: target/*.jar  
           token: ${{ secrets.GITHUB_TOKEN }}
           makeLatest: true  
+          updateOnlyUnreleased: true 
