@@ -15,7 +15,6 @@ package pl.put.poznan.sorter.logic;
  * 
  * @see Sorter
  */
-
 public class BubbleSort implements Sorter {
 
     /**
