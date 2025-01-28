@@ -1,7 +1,7 @@
 name: Create Release
 
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -20,11 +20,11 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Package JAR for Release
+      - name: Build the JAR file for release
         run: mvn clean package -DskipTests
 
       - name: List files in target
-        run: ls -l target
+        run: ls -l target  
 
       - name: Create or Update Release
         uses: ncipollo/release-action@v1
@@ -33,6 +33,6 @@ jobs:
           name: Release ${{ github.event.inputs.tag_name }}
           body: |
             This release contains the compiled JAR file for version ${{ github.event.inputs.tag_name }}.
-          artifacts: target/*.jar
+          artifacts: target/*.jar 
           token: ${{ secrets.GITHUB_TOKEN }}
           updateAction: update
