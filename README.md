@@ -73,3 +73,5 @@ http://localhost:8080/app/sortingmadness/sort?data=1a,2,6,3,-12&algorithms=4,1,2
 ##### [DOD](https://docs.google.com/spreadsheets/d/e/2PACX-1vTn6j3M8pmGEzrsQk8mXse7lVHUdhYWkfxbkQiYI23rBtwM4N3bWw0qtupW-gesfCkcYasnZ-eEXl-F/pubhtml)
 
 ##### [Zadania - Trello](https://trello.com/b/1zwqhHnm/sortingmadness)
+
+##### [DOKUMENTACJA](https://vacvaccy.github.io/SortingMadness-Sprint/)
