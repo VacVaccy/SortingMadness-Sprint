@@ -4,6 +4,8 @@ on:
     push:
         branches:
             - main
+        tags:
+            - 'v*'
     pull_request:
         branches:
             - main
@@ -24,3 +26,18 @@ jobs:
           cache: maven
       - name: Validate, build and run tests
         run: mvn --batch-mode --update-snapshots verify
+
+      - name: Package JAR
+        if: startsWith(github.ref, 'refs/tags/v') 
+        run: mvn clean package
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ github.ref_name }} 
+          name: Release ${{ github.ref_name }}
+          body: |
+            This release contains the compiled JAR file for version ${{ github.ref_name }}.
+          artifacts: target/*.jar 
+          token: ${{ secrets.GITHUB_TOKEN }}
